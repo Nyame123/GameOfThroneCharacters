@@ -16,8 +16,8 @@ interface ApiService {
     }
 
     @GET(CHARACTERS)
-    suspend fun getPocketPaginatedFeed(
+    suspend fun getMovieCharacters(
         @Query(PAGE_QUERY) page: Int? = null,
         @Query(PER_PAGE_QUERY) perPage: Int? = null
-    ): Call<MovieCharactersRaw>
+    ): MovieCharactersRaw
 }

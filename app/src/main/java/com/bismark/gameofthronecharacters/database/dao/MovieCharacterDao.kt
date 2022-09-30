@@ -1,5 +1,6 @@
 package com.bismark.gameofthronecharacters.database.dao
 
+import androidx.paging.PagingSource
 import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert
@@ -13,7 +14,7 @@ import kotlinx.coroutines.flow.Flow
 interface MovieCharacterDao {
 
     @Query("select * from MovieCharacter")
-    suspend fun getMovieCharacters(): List<MovieCharacter>
+    fun getMovieCharacters(): PagingSource<Int,MovieCharacter>
 
     @Query("select * from MovieCharacter where id= :id")
     suspend fun getMovieCharacter(id: Long): MovieCharacter
@@ -29,4 +30,7 @@ interface MovieCharacterDao {
 
     @Delete
     suspend fun deleteMovieCharacter(movieCharacter: MovieCharacter)
+
+    @Query("Delete from MovieCharacter")
+    suspend fun deleteMovieCharacterAll()
 }

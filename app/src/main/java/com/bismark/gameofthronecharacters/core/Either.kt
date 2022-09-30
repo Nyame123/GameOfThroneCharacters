@@ -106,6 +106,14 @@ suspend fun <L, R, T> Either<L, R>.foldSuspendable(fnL: suspend (L) -> T?, fnR: 
 /**
  * Unwrap [Either] and return the right value or null if [Either] is left
  */
+fun <T> Either<T, Any>.leftOrNull(): T? = when (this) {
+    is Either.Left -> a
+    is Either.Right -> null
+}
+
+/**
+ * Unwrap [Either] and return the right value or null if [Either] is left
+ */
 fun <T> Either<Any, T>.rightOrNull(): T? = when (this) {
     is Either.Right -> b
     is Either.Left -> null
