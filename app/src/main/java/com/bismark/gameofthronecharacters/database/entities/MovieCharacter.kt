@@ -7,10 +7,9 @@ import androidx.room.PrimaryKey
 data class MovieCharacter(
     @PrimaryKey(autoGenerate = true)
     val id: Long = 0L,
-    val name: String,
+    val name: String?,
     val alias: String,
     val culture: String,
     val url: String,
     val gender: String,
-    val books: List<String> = emptyList()
 )

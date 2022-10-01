@@ -4,9 +4,12 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.paging.cachedIn
 import com.bismark.gameofthronecharacters.data_layer.MovieCharacterRepository
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 
-class MovieCharacterViewModel(
-    val movieCharacterRepository: MovieCharacterRepository
+@HiltViewModel
+class MovieCharacterViewModel @Inject constructor(
+   movieCharacterRepository: MovieCharacterRepository
 ) : ViewModel() {
 
     val movieCharacterPagerFlow = movieCharacterRepository.getMovieCharacterPages()

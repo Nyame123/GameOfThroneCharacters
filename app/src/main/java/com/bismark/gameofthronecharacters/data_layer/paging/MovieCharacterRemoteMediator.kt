@@ -12,7 +12,7 @@ import com.bismark.gameofthronecharacters.database.AppDatabase
 import com.bismark.gameofthronecharacters.database.entities.MovieCharacter
 import com.bismark.gameofthronecharacters.database.entities.MovieCharacterRemoteKeys
 
-private const val STARTING_PAGE_INDEX = 0
+private const val STARTING_PAGE_INDEX = 1
 
 @OptIn(ExperimentalPagingApi::class)
 class MovieCharacterRemoteMediator(

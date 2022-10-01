@@ -1,7 +1,5 @@
 package com.bismark.gameofthronecharacters.data_layer.service
 
-import com.bismark.gameofthronecharacters.data_layer.MovieCharactersRaw
-import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Query
 
@@ -19,5 +17,5 @@ interface ApiService {
     suspend fun getMovieCharacters(
         @Query(PAGE_QUERY) page: Int? = null,
         @Query(PER_PAGE_QUERY) perPage: Int? = null
-    ): MovieCharactersRaw
+    ): List<MovieCharacterRaw>
 }

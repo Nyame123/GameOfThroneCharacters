@@ -1,11 +1,9 @@
-package com.bismark.gameofthronecharacters.data_layer
+package com.bismark.gameofthronecharacters.data_layer.service
 
 import com.bismark.gameofthronecharacters.database.entities.MovieCharacter
-import com.squareup.moshi.JsonClass
 import com.bismark.gameofthronecharacters.empty
 import com.bismark.gameofthronecharacters.toSafeString
 
-@JsonClass(generateAdapter = true)
 data class MovieCharacterRaw(
     internal val url: String? = String.empty(),
     internal val name: String? = String.empty(),
@@ -31,9 +29,5 @@ data class MovieCharacterRaw(
         alias = aliases?.get(0) ?: String.empty(),
         gender = gender.toSafeString(),
         culture = culture.toSafeString(),
-        books = books ?: emptyList()
     )
 }
-
-@JsonClass(generateAdapter = true)
-data class MovieCharactersRaw(internal val movieCharacters: List<MovieCharacterRaw>? = null)

@@ -2,7 +2,6 @@ package com.bismark.gameofthronecharacters.di
 
 import android.content.Context
 import androidx.room.Room
-import androidx.room.RoomDatabase
 import com.bismark.gameofthronecharacters.data_layer.service.ApiService
 import com.bismark.gameofthronecharacters.database.AppDatabase
 import com.bismark.gameofthronecharacters.database.DATABASE_NAME
@@ -13,7 +12,7 @@ import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
-import retrofit2.converter.moshi.MoshiConverterFactory
+import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
 
@@ -39,12 +38,16 @@ object AppModule {
     fun providesRetrofit(client: OkHttpClient): Retrofit = Retrofit.Builder()
         .baseUrl(ApiService.BASE_URL)
         .client(client)
-        .addConverterFactory(MoshiConverterFactory.create())
+        .addConverterFactory(GsonConverterFactory.create())
         .build()
 
     @Singleton
     @Provides
-    fun providesRoomDatabase(@ApplicationContext context: Context): RoomDatabase =
+    fun providesApiService(retrofit: Retrofit): ApiService = retrofit.create(ApiService::class.java)
+
+    @Singleton
+    @Provides
+    fun providesRoomDatabase(@ApplicationContext context: Context): AppDatabase =
         Room.databaseBuilder(context, AppDatabase::class.java, DATABASE_NAME)
             .fallbackToDestructiveMigration()
             .build()

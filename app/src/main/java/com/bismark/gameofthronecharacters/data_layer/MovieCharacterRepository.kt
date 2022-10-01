@@ -6,15 +6,15 @@ import androidx.paging.PagingConfig
 import com.bismark.gameofthronecharacters.data_layer.datasource.MovieCharacterRemoteDataSource
 import com.bismark.gameofthronecharacters.data_layer.paging.MovieCharacterRemoteMediator
 import com.bismark.gameofthronecharacters.database.AppDatabase
+import javax.inject.Inject
 
-internal const val NETWORK_PAGE_SIZE = 20
+internal const val NETWORK_PAGE_SIZE = 10
 
-class MovieCharacterRepository(
+
+class MovieCharacterRepository @Inject constructor(
     val appDatabase: AppDatabase,
     val movieCharacterRemoteDataSource: MovieCharacterRemoteDataSource
 ) {
-
-    val pagingSourceFactory = { }
 
     @OptIn(ExperimentalPagingApi::class)
     fun getMovieCharacterPages() = Pager(

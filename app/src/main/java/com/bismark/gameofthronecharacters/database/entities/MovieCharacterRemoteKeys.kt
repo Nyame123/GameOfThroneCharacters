@@ -5,7 +5,7 @@ import androidx.room.PrimaryKey
 
 @Entity
 data class MovieCharacterRemoteKeys(
-    @PrimaryKey val pageID: Long,
+    @PrimaryKey(autoGenerate = true) val pageID: Long,
     val prevKey: Int?,
     val nextKey: Int?
 )
