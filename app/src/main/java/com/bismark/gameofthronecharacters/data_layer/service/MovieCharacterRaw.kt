@@ -29,5 +29,6 @@ data class MovieCharacterRaw(
         alias = aliases?.get(0) ?: String.empty(),
         gender = gender.toSafeString(),
         culture = culture.toSafeString(),
+        books = books ?: emptyList()
     )
 }

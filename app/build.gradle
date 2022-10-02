@@ -57,6 +57,9 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-runtime-ktx:$arch_lifecycle_version"
     implementation "androidx.activity:activity-compose:$compose_activity_version"
 
+    //navigation
+    implementation("androidx.navigation:navigation-compose:$nav_version")
+
     //hilt
     kapt "com.google.dagger:hilt-compiler:$hilt_version"
     implementation "com.google.dagger:hilt-android:$hilt_version"
