@@ -9,11 +9,9 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Scaffold
 import androidx.compose.material.Surface
-import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -23,7 +21,7 @@ import com.bismark.gameofthronecharacters.ui.screens.LoadingProgressBar
 import com.bismark.gameofthronecharacters.ui.screens.MovieCharacterList
 import com.bismark.gameofthronecharacters.ui.screens.Routes
 import com.bismark.gameofthronecharacters.ui.theme.GameOfThroneCharactersTheme
-import com.bismark.gameofthronecharacters.ui.theme.MovieCharacterViewModel
+import com.bismark.gameofthronecharacters.ui.MovieCharacterViewModel
 import com.bismark.gameofthronecharacters.ui.widgets.TopBar
 import dagger.hilt.android.AndroidEntryPoint
 

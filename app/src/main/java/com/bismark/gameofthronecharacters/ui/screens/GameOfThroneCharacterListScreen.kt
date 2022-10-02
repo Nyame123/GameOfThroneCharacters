@@ -40,7 +40,7 @@ import androidx.paging.compose.collectAsLazyPagingItems
 import androidx.paging.compose.items
 import com.bismark.gameofthronecharacters.R
 import com.bismark.gameofthronecharacters.database.entities.MovieCharacter
-import com.bismark.gameofthronecharacters.ui.theme.MovieCharacterViewModel
+import com.bismark.gameofthronecharacters.ui.MovieCharacterViewModel
 
 @Composable
 fun MovieCharacterList(

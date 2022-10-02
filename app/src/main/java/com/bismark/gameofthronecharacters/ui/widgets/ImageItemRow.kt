@@ -20,7 +20,7 @@ import androidx.compose.ui.unit.sp
 import com.bismark.gameofthronecharacters.R
 
 @Composable
-fun ImageItemRow(
+fun ItemRow(
     modifier: Modifier,
     itemLabel: String,
     labelValue: String
@@ -42,9 +42,9 @@ fun ImageItemRow(
         Spacer(modifier = Modifier.width(8.dp))
 
         Text(
-            text = labelValue,
+            text = labelValue.ifEmpty { "N/A" },
             color = colorResource(id = R.color.black),
-            fontSize = 14.sp
+            fontSize = 16.sp
         )
     }
 

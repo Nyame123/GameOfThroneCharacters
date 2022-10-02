@@ -13,7 +13,7 @@ class MovieCharacterRemoteDataSource @Inject constructor(
 
     override suspend fun getMovieCharacter(page: Int, perPage: Int): Either<Failure, List<MovieCharacter>> =
         onSuspendCall {
-            val result = apiService.getMovieCharacters(page,perPage)
-                result.map { it.toMovieCharacter() }
+             apiService.getMovieCharacters(page,perPage)
+                 .map { it.toMovieCharacter() }
         }
 }

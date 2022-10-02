@@ -10,10 +10,13 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
+import kotlinx.coroutines.CoroutineDispatcher
+import kotlinx.coroutines.Dispatchers
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
+import javax.inject.Named
 import javax.inject.Singleton
 
 private const val CONNECT_TIMEOUT = 30L
@@ -32,6 +35,12 @@ object AppModule {
             .readTimeout(READ_TIMEOUT, TimeUnit.SECONDS)
             .connectTimeout(CONNECT_TIMEOUT, TimeUnit.SECONDS)
             .build()
+    @Provides
+    @Singleton
+    @Named("Background")
+    fun provideCoroutineBackgroundDispatcher(): CoroutineDispatcher {
+        return Dispatchers.Default
+    }
 
     @Singleton
     @Provides

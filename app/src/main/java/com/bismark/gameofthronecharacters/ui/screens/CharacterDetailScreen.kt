@@ -18,8 +18,8 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.unit.dp
 import com.bismark.gameofthronecharacters.R
-import com.bismark.gameofthronecharacters.ui.theme.MovieCharacterViewModel
-import com.bismark.gameofthronecharacters.ui.widgets.ImageItemRow
+import com.bismark.gameofthronecharacters.ui.MovieCharacterViewModel
+import com.bismark.gameofthronecharacters.ui.widgets.ItemRow
 
 @Composable
 fun CharacterDetailScreen(viewModel: MovieCharacterViewModel) {
@@ -40,27 +40,27 @@ fun CharacterDetailScreen(viewModel: MovieCharacterViewModel) {
             contentDescription = "user profile"
         )
         Spacer(modifier = Modifier.height(8.dp))
-        ImageItemRow(
+        ItemRow(
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(8.dp),
-            itemLabel = "Name", labelValue = movieCharacter.name!!.ifEmpty { movieCharacter.alias }
+            itemLabel = "Name:", labelValue = movieCharacter.name!!.ifEmpty { movieCharacter.alias }
         )
 
         Spacer(modifier = Modifier.height(8.dp))
-        ImageItemRow(
+        ItemRow(
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(8.dp),
-            itemLabel = "Culture", labelValue = movieCharacter.culture
+            itemLabel = "Culture:", labelValue = movieCharacter.culture
         )
         Spacer(modifier = Modifier.height(8.dp))
 
-        ImageItemRow(
+        ItemRow(
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(8.dp),
-            itemLabel = "Gender", labelValue = movieCharacter.gender
+            itemLabel = "Gender:", labelValue = movieCharacter.gender
         )
         Spacer(modifier = Modifier.height(16.dp))
     }
