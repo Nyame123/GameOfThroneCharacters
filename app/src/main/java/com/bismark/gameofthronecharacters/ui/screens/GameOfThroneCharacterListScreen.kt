@@ -58,7 +58,6 @@ fun MovieCharacterList(
             }
         }
 
-        Log.d("Load State", movieCharacters.loadState.toString())
         val state = movieCharacters.loadState
         when {
             state.refresh == LoadState.Loading -> {
@@ -75,13 +74,17 @@ fun MovieCharacterList(
 
             state.refresh is LoadState.Error -> {
                 item {
-                    ErrorItem((state.refresh as LoadState.Error).error.message ?: "Error")
+                    ErrorItem((state.refresh as LoadState.Error).error.message ?: "Error"){
+                        movieCharacters.retry()
+                    }
                 }
             }
 
             state.append is LoadState.Error -> {
                 item {
-                    ErrorItem((state.append as LoadState.Error).error.message ?: "Error")
+                    ErrorItem((state.refresh as LoadState.Error).error.message ?: "Error"){
+                        movieCharacters.retry()
+                    }
                 }
             }
 
@@ -140,7 +143,7 @@ fun MovieItemCard(movieCharacter: MovieCharacter, onClick: (MovieCharacter) -> U
 }
 
 @Composable
-fun ErrorItem(message: String) {
+fun ErrorItem(message: String, onClick: () -> Unit) {
     Card(
         elevation = 2.dp,
         modifier = Modifier
@@ -153,6 +156,7 @@ fun ErrorItem(message: String) {
                 .fillMaxWidth()
                 .background(Color.Red)
                 .padding(8.dp)
+                .clickable { onClick() }
         ) {
             Image(
                 modifier = Modifier
@@ -165,7 +169,7 @@ fun ErrorItem(message: String) {
             )
             Text(
                 color = Color.White,
-                text = message,
+                text =  "click to Retry. $message",
                 fontSize = 16.sp,
                 modifier = Modifier
                     .padding(start = 12.dp)
