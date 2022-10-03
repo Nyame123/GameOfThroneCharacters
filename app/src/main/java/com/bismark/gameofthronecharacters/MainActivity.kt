@@ -64,7 +64,6 @@ fun MyAppNavHost(
             MovieCharacterList(
                 modifier = Modifier.padding(),
                 viewModel = viewModel,
-                navHostController = navController,
                 onClick = {
                     viewModel.selectCharacter(it)
                     navController.navigate(Routes.CHARACTER_DETAIL_SCREEN)
