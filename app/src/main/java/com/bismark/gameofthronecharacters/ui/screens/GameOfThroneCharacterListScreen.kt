@@ -55,27 +55,14 @@ fun MovieCharacterList(
 
         val state = movieCharacters.loadState
         when {
-            state.refresh == LoadState.Loading -> {
+            state.refresh == LoadState.Loading || state.append == LoadState.Loading -> {
                 item {
                     LoadingProgressBar()
                 }
             }
 
-            state.append == LoadState.Loading -> {
-                item {
-                    LoadingProgressBar()
-                }
-            }
 
-            state.refresh is LoadState.Error -> {
-                item {
-                    ErrorItem((state.refresh as LoadState.Error).error.message ?: "Error"){
-                        movieCharacters.retry()
-                    }
-                }
-            }
-
-            state.append is LoadState.Error -> {
+            state.refresh is LoadState.Error || state.append is LoadState.Error -> {
                 item {
                     ErrorItem((state.refresh as LoadState.Error).error.message ?: "Error"){
                         movieCharacters.retry()

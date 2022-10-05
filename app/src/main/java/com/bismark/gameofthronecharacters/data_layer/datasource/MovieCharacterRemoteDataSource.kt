@@ -8,7 +8,7 @@ import com.bismark.gameofthronecharacters.database.entities.MovieCharacter
 import javax.inject.Inject
 
 class MovieCharacterRemoteDataSource @Inject constructor(
-    val apiService: ApiService
+    private val apiService: ApiService
 ): MovieCharacterDataSource, INetworkRequest {
 
     override suspend fun getMovieCharacter(page: Int, perPage: Int): Either<Failure, List<MovieCharacter>> =

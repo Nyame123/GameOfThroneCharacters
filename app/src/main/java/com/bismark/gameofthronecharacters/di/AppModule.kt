@@ -35,6 +35,7 @@ object AppModule {
             .readTimeout(READ_TIMEOUT, TimeUnit.SECONDS)
             .connectTimeout(CONNECT_TIMEOUT, TimeUnit.SECONDS)
             .build()
+
     @Provides
     @Singleton
     @Named("Background")
